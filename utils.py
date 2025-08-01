@@ -11,7 +11,7 @@ def create_patchs (x, patch_size, stride):
 
     B, L, C = x.shape
     num_patches = (L - patch_size) // stride + 1
-    patches = []
+    patches = [] # input 데이터
     
     for i in range(num_patches): # 시계열을 일정 길이의 패치로 잘라내는 슬라이딩 윈도우 방식 
         start = i * stride # stride = 윈도우 이동 간격 

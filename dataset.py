@@ -9,9 +9,9 @@ import numpy as np
 class TimeSeriesDataset(Dataset):
     def __init__(self, data, seq_len = 96, pred_len = 24):
         super().__init__()
-        self.seq_len = seq_len # 과거 입력 시계열 길이
-        self.pred_len = pred_len # 미래 예측 시계열 길이
-        self.data = data # 전체 시계열 데이터
+        self.seq_len = seq_len # 과거 입력 시계열 길이 336
+        self.pred_len = pred_len # 미래 예측 시계열 길이 96
+        self.data = data # 전체 시계열 데이터 
     
     def __len__(self):
         return len(self.data) - self.seq_len - self.pred_len + 1 # 슬라이딩 윈도우로 만들 수 있는 총 샘플 개수 
@@ -48,3 +48,5 @@ print("dataset:", dataset)  # None이면 여기서 바로 알 수 있음
 df = pd.DataFrame(dataset.data)
 df.to_csv("saved_timeseries.csv", index=False)
 
+
+# %%
